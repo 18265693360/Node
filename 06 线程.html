@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 11，JS特性之单线程
+    // 什么是线程？
+    // 在一个软件运行过程中，真正干活是线程，一个进程对应了很多线程。
+    // 单线程的优缺点：
+// 优点：实现起来简单，任务一个一个。
+// 缺点：只要有一个任务耗时较长，后面的任务必须排队等待，会拖延整个程序的执行
+
+
+    // 用代码演示异步：
+    console.log("test");
+    console.log("循环开始了");
+    setTimeout(function () {
+        for (let i = 0; i<100000; i++){
+
+        }
+    },20)
+    console.log('循环结束了');
+    console.log("test");
+    //setTimeOut(f,0)不是说立即执行代码 而是将f函数放到任务队列中 然后继续执行后续代码 后续任务执行完毕 才回去找下一个任务
+    //执行for 循环
+
+
+    // 在JS中回调也是一种思想。
+    // 表现：将一个函数作为另一个函数的参数， 匿名函数
+​    setInterval(function () {
+        console.log("6666");
+    },1000)
+
+    //另一种
+    function f3(f) {
+        console.log("f3");
+        f();
+    }
+    function f4() {
+        console.log("f4");
+    }
+    f3(f4);
+
+</script>
+</html>

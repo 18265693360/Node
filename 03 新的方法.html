@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button onclick="numbers.forEach(myFunction)">点我</button>
+<p id="demo"></p>
+</body>
+<script>
+    // Array.isArray(object)
+    // 验证数组是否为数组
+    // 返回值是布尔类型的。
+    // 如果传进来的object是数组，返回true，如果不是数组，则返回false。
+    Array.isArray([1,3,4,5]);
+
+    var obj = {
+        a:1,
+        b:2
+    };
+    console.log(Array.isArray(obj));;
+    console.log(Array.isArray(new Array));;
+    console.log(Array.isArray("Array"));
+
+
+    // forEach()
+    // 遍历数组
+    //列出数组的每个元素：
+    // forEach() 方法用于调用数组的每个元素，并将元素传递给回调函数。
+    // 注意: forEach() 对于空数组是不会执行回调函数的。
+    demoP = document.getElementById("demo");
+    var numbers = [4,9,16,25];
+
+    function myFunction(item, index) {
+        demoP.innerHTML = demoP.innerHTML + "index["+ index +"]:" + item + "<br>";
+    }
+    // innerHTML和innerText区别：
+    // innerHTML返回的是标签内的 html内容，包含html标签。
+    // innerText返回的是标签内的文本值，不包含html标签。
+    var arr = ["a","b","c","s"];
+    for (var i = 0; i<arr.length; i++){
+        console.log(arr[i]);
+    }
+    //forEach()
+    arr.forEach(function (item, index) {
+        console.log(item + "_______" + index);
+    })
+
+
+    //map() 地图，映射
+    // map方法返回一个由原数组中的每个元素调用一个指定的方法
+    // 后的返回值组成一个新数组。
+    // 对于一个数组arr=[1,2,3]，求里面每个元素的平方，放到一个新的数组里面
+    var arr = [1,2,3,4];
+    var al = [];
+    for (var i = 0; i<arr.length;i++){
+        al[i] = arr[i]*arr[i];
+    }
+    console.log(al);
+
+    //map()
+    function f(num) {
+        return num*num;
+    }
+    var a2 = arr.map(f);
+    console.log(a2);
+    //map一步到位
+    var a3 = arr.map(function (num) {
+        return num*num;
+    })
+    console.log(a3);
+
+    // （4）	filter()
+    // filter， 对于一个数组，运行某个规则，过滤掉某些元素，返回剩余的元素，剩余的元素组成一个新数组 。
+    var score = [20,30,40,50,45,65,67,58,96]
+    var arr = [];
+    for (var i = 0; i<score.length; i++){
+        if (score[i]>=60){
+            arr.push(score[i])
+        }
+    }
+    console.log(arr);
+    //filter
+    function f1(score) {
+        return score>=60;
+    }
+    var al = score.filter(f);
+    console.log(al);
+    var s2 = score.filter(function (num) {
+        return num>60;
+    })
+    console.log(s2);
+
+
+
+
+    // some是一些的意思    类似于 ||
+    var res = score.some(function (num) {
+        return num>=60;
+    })
+
+    console.log(res);
+
+
+
+    // （6）every
+    // every是所以的意思
+    // 判断数组中每一个元素是否满足某个规则。 类似 &&
+    var score = [23,65,76,76,56,456,67];
+    function f2(arr) {
+        for (var i=0; i<arr.length; i++){
+            if (arr[i]<60){
+                return false;
+            }
+            return true;
+        }
+    }
+    console.log(f(score));
+    //every
+    var res = score.every(function (num) {
+        return num>=60;
+    })
+    console.log(res);
+
+    //箭头函数
+    var k = (num1,num2)=>{
+        return num1 + num2;
+    }
+    console.log(k(3, 4));
+
+    // （2）	keys()
+    // 获取对象所有的属性名称，形成一个数组
+    var obj = {
+        name: "xiaoqiang",
+        age:5,
+        sex:"man"
+    }
+    console.log(Object.keys(obj));
+
+    // （3）create()
+    // 用来实现继承的
+    var obj = Object.create({
+        nation:"中国"
+    },{
+        career:{
+            value:"医生",
+            writable:true,
+            enumerable:false,
+            configurable:false
+        }
+    });
+    console.log(obj.career);
+    console.log(obj.nation);
+
+    // （4）	freeze()
+    // 防篡改  不允许新增，不允许删除，不允许修改
+    // var dog = {
+    //     name:"wangcai",
+    //     age:3
+    // };
+    // Object.freeze(dog);
+    // //dog中的不改变了
+    //
+    // dog.abe = "hello";
+    // console.log(dog.abe);
+    // delete dog.name;
+    // console.log(dog.name);
+    // dog.name = "xiaoqiang";
+    // console.log(dog.name);
+
+
+    // seal()
+    // 不允许新增，也不允许删除，但是允许修改
+    // var dog1 = {
+    //     name: "xx",
+    //     age:4
+    // }
+    // Object.seal(dog1);
+    // dog1.abe = "hello";
+    // console.log(dog1.abe);
+    // delete dog1.name;
+    // console.log(dog1.name);
+    // dog1.name = "xiao";
+    // console.log(dog1.name);
+
+    // （3）	preventExtensions()
+    // 不允许新增，允许删除，允许修改
+    var dog = {
+        name: "rr",
+        age:2
+    }
+    Object.preventExtensions(dog);
+    dog.abe = "hello";
+    console.log(dog.abe);
+    delete  dog.name;
+    console.log(dog.name);
+    dog.age = 100;
+    console.log(dog.age);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

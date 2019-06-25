@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 根据参数的不同，还有几中写法：
+    // 1， ()=>{...}  // 0个参数时
+    // ()=>{...}
+    var j = ()=>{
+        console.log("hello");
+    }
+
+    // x=>{...} // 1个参数
+    var m = (mun1) =>{
+        return num1;
+    }
+
+    // 一个参数时()可以省略 多个参数不可以
+    var m = num1 =>{
+        return num1;
+    }
+
+    // JS是一门运行在浏览器端的脚本语言。
+    // 特性：
+    // 1，弱类型语言
+    // 2，解释性
+
+    // 证明：基本数据类型是对象，再证明一下引用数据类型也是对象  ==> 一切皆对象
+    //
+    // JS中对象分三类：
+    // 1，内置对象
+    //     2，宿主对象
+    //     3，自定义对象
+    //
+    //     JS是一门基于对象的编程语言，不是一门面向对象的编程语言，
+    //     面向对象语言有三大特征，封装，继承，多态。JS是模拟的这三大特征。
+
+    // 原生对象 Object Function Array String Boolean Number date RegExp(正则表达式)
+    // 内置对象 Math Global
+//     宿主对象：有宿主提供的对象，在浏览器中window对象以及其下边所有的子对象(如bom、dom等等)，在node中是globla及其子对象，也包含自定义的类对象。【何为“宿主对象”？  在web中，ECMAScript中的“宿主”当然就是我们网页的运行环境，即“操作系统”和“浏览器”。所有非本地对象都是宿主对象（host object），即由 ECMAScript 实现的宿主环境提供的对象。】
+// 全局对象：一般全局对象会有两个，一个是ecma提供的Global对象，一个是宿主提供。如在浏览器中是window、在nodejs中是global。【所以啊，在浏览器中全局对象是Global+window】
+// 通常情况下ecma提供的Global对象对是不存在的，没有具体的对象，
+//     宿主对象
+    document window
+</script>
+</html>
