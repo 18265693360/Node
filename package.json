@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "fs": "^0.0.1-security",
+    "mime": "^2.4.4",
     "request": "^2.88.0"
   }
 }
