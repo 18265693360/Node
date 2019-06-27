@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // var a = 1;
+    // var b = 2;
+    //
+    // console.log(++b);
+    // console.log(a++);
+
+
+
+//     本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。由于语言特有的"链式作用域"结构（chain scope），子对象会一级一级地向上寻找所有父对象的变量。所以，父对象的所有变量，对子对象都是可见的，反之则不成立。因此，为了外部元素可以访问函数 f 内部的所有变量，则在 f 内部也定义一个函数，即“函数中的函数”，为方便称为ff，ff可以访问 f 的所有变量，则在 f 内将ff这个函数return出去，则外部就可以通过ff访问 f 的属性了。
+//
+// 闭包的最大用处有两个，一个是可以读取函数内部的变量，另一个就是让这些变量始终保持在内存中，即闭包可以使得它诞生环境一直存在。请看下面的例子，闭包使得内部变量记住上一次调用时的运算结果。
+
+
+    function createIncrementor(start) {
+        return function () {
+            return start++;
+        };
+    }
+
+    var inc = createIncrementor(5);
+
+    // 原因就在于inc（全局变量）始终在内存中，而inc的存在依赖于createIncrementor，因此也始终在内存中，不会在调用结束后，被垃圾回收机制回收。
+    console.log(inc())
+    console.log(inc())
+    console.log(inc())
+</script>
+</html>

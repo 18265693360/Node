@@ -20,6 +20,8 @@ http.createServer(function (req, res) {
            res.write(data);
            res.end();
         })
+
+        //css img等静态资源加载
     } else {
         fs.readFile(path.join(__dirname, pathName), function (err,data) {
           if (err){
@@ -56,3 +58,6 @@ http.createServer(function (req, res) {
     //     })
     // }
 
+
+
+// 对象放在堆区
